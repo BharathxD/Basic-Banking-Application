@@ -28,6 +28,12 @@ Go to the project directory
   cd Basic-Banking-Application
 ```
 
+Install the Dependencies
+
+```bash
+  npm install
+```
+
 Run the Scripts
 
 ```bash
