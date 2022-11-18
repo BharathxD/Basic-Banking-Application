@@ -1,0 +1,49 @@
+<%- include('Partials/header.ejs') -%>
+<header>
+  <div class="left">
+    <h1><i class="bi bi-bank"></i></h1>
+  </div>
+  <div class="right">
+    <a class="btn btn-lg btn-outline-dark" href="/"><i class="bi bi-box-arrow-left"></i></a>
+  </div>
+</header>
+<img src="/images/bg.webp" alt="bg-image" />
+<main class="transactions">
+    <div class="hero-container">
+      <%if(error && error.length > 0){%>
+        <div class="alert alert-danger"><%=error%></div>
+        <%}%> <%if(success && success.length > 0){%>
+        <div class="alert alert-success"><%=success%></div>
+        <%}%>
+        <form class="transaction-row needs-validation" method="post" action="/transaction/add" novalidate>
+
+            <div class="form-box">
+              <label for="validationCustom05" class="form-label">Sender</label>
+              <input type="number" class="form-control" id="validationCustom05" name="sender" value="<%=sender%>" required>
+              <div class="invalid-feedback">
+                Please provide a Sender ID.
+              </div>
+            </div>
+
+            <div class="form-box">
+              <label for="validationCustom05" class="form-label">Reciever</label>
+              <input type="number" class="form-control" id="validationCustom05" name="reciever" required>
+              <div class="invalid-feedback">
+                Please provide a Reciever ID.
+              </div>
+            </div>
+
+            <div class="form-box">
+              <label for="validationCustom05" class="form-label">Amount</label>
+              <input type="number" class="form-control" name="amount" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+            <div class="submit-button">
+              <button class="btn btn-danger" type="submit">Initiate Transaction</button>
+            </div>
+          </form>
+    </div>    
+</main>
+<%- include('Partials/footer.ejs') -%>
